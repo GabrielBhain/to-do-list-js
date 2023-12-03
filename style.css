@@ -19,6 +19,7 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 2rem;
+    padding: 20px;
 }
 
 h1 {
@@ -30,12 +31,15 @@ h2 {
 }
 
 .content {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    width: 100%;
+    max-width: 800px;
+    /* Defina a largura máxima desejada para o conteúdo */
 }
 
-.conten--add-item {
+.content--additem-item {
     display: flex;
     align-items: center;
     gap: 1rem;
@@ -51,7 +55,8 @@ h2 {
 }
 
 #input-new-task {
-    width: 20rem;
+    width: 100%;
+    /* Ocupa toda a largura disponível */
     border-radius: 1rem;
 }
 
@@ -108,4 +113,15 @@ h2 {
     border-radius: 1rem;
     padding-left: 1rem;
     align-items: center;
+}
+
+/* Media queries para ajustar o layout em diferentes tamanhos de tela */
+@media only screen and (max-width: 600px) {
+    .content {
+        grid-template-columns: 1fr;
+    }
+
+    #input-new-task {
+        width: calc(100% - 20px);
+    }
 }
